@@ -23,13 +23,16 @@ Constraints:
 -231 <= x <= 231 - 1
 */
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 class Palindrome_Number_04{
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
-        System.out.println(isPalindrome(x));
+//        Scanner sc = new Scanner(System.in);
+//        int x = sc.nextInt();
+//        System.out.println(isPalindrome(x));
+        isPalindrome2("rsddsr");
     }
 
     public static boolean isPalindrome(int x) {
@@ -43,5 +46,25 @@ class Palindrome_Number_04{
             num /= 10;
         }
         return ans == x;
+    }
+
+    public static boolean isPalindrome2(String str){
+        Map<Character, Integer> map = new HashMap<>();
+
+        for(char c : str.toCharArray()){
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        System.out.println(map);
+
+        if(str.length() % 2 != 0) {
+            for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+                if (entry.getValue() % 2 != 0) return true;
+            }
+        }else {
+            for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+                if (entry.getValue() % 2 == 0) return true;
+            }
+        }
+        return false;
     }
 }
