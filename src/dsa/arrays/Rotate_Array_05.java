@@ -14,6 +14,8 @@ class Rotate_Array_05{
         int[] arr = {9,8,7,6,5};
         System.out.println(Arrays.toString(obj.rotateArray(arr, 2)));
 
+
+        Math.random();
         //Dynamic
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Size of Array: ");
